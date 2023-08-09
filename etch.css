@@ -1,9 +1,24 @@
 
 #gridHolder{
+    display: grid;
+    grid-template-columns: repeat(5, 2fr);
+    grid-template-rows: repeat(5, 2fr);
+    /* flex-wrap: wrap; */
+    /* align-content: stretch; */
     width: 500px;
     height: 500px;
     background-color: blanchedalmond;
 }
 .gridElement{
-    background-color: blue;
+    aspect-ratio: 1;
+    /* width: auto; */
+    /* height: auto; */
+    /* background-color: white; */
+    /* border: 1px solid darkgray; */
+    /* flex-basis: 8%; */
+    /* flex-basis: 31.25px; */
+}
+.gridElementChanged{
+    background-color: blueviolet;
+    transition: all 0.5s;
 }
