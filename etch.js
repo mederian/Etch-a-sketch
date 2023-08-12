@@ -1,31 +1,26 @@
 
-let size = 5;
+let size = 40;
 const textSizeInput = document.querySelector('#sizeInput');
-//a div that holds the grid:
 const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
+textSizeInput.addEventListener('change', sizeRedo);
 
-// Create 16x16=256 divs for the grid (This should be changeable, 
-// so number of grid can be changed, but size of the containergrid is the same.)
 createGrid();
-function createGrid(){
-    console.log("Creating grid with size: " + size);
 
-    //CSS Change value of css to size..
-    //    grid-template-columns: repeat(size, 2fr);
-    //    grid-template-rows: repeat(size, 2fr);
-    
+function createGrid(){
+    console.log("Creating grid with size: " + size);  
     for(let i = 0; i < (size*size); i++){
         grid[i] = document.createElement('div');
+        gridHolder.setAttribute('style', `grid-template-columns: repeat(${size}, 2fr); grid-template-rows: repeat(${size}, 2fr);`);
+
         grid[i].setAttribute('class', 'gridElement');
         gridholder.append(grid[i]);
     }   
     
     grid.forEach((element) => {
-        //element.addEventListener('click', clickTester);
         element.addEventListener('mouseover', changeColor);
         
-        //Blocked this out, 
+        //Blocked this out as I misunderstood the assignment 
         //element.addEventListener('transitionend', RemoveTransition);
     })
 }
@@ -36,34 +31,23 @@ function deleteGrid(){
     }
 }
 
-function clickTester() {
-    console.log("Click is working");
-}
 function changeColor(){
     this.classList.add('gridElementChanged');
 }
-function RemoveTransition(){
-    this.classList.remove('gridElementChanged');
-}
+
 function sizeRedo(){
     if(size != textSizeInput){
-        //if textSizeInput is a number
-        //if textSizeInput is less than 101
-        //change size to textSizeInput
-        size = 25;
-        deleteGrid();
-        createGrid();
+        console.log(textSizeInput.value);
+        if(!isNaN(textSizeInput.value)){
+            console.log("Setting size");
+            size = textSizeInput.value;            
+            deleteGrid();
+            createGrid();
+        } 
     }    
 }
 
-
-
-textSizeInput.addEventListener('change', sizeRedo);
-
-// Add mouseEnter and mouseLeave listener event for each of the divs. 
-// function connected to the eventlistener will change the colour of the grid element
-
-// Border and margins can mess up the grid
-
-
-
+// Not in use
+function RemoveTransition(){
+    this.classList.remove('gridElementChanged');
+}
