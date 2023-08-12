@@ -1,8 +1,8 @@
 
 #gridHolder{
     display: grid;
-    grid-template-columns: repeat(5, 2fr);
-    grid-template-rows: repeat(5, 2fr);
+    grid-template-columns: repeat(16, 2fr);
+    grid-template-rows: repeat(16, 2fr);
     /* flex-wrap: wrap; */
     /* align-content: stretch; */
     width: 500px;
