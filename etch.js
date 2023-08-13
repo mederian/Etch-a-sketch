@@ -11,11 +11,12 @@ const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
 sliderSizeInput.addEventListener('change', sizeRedo);
 sliderSizeInput.addEventListener('input', sliderMouseDown);
-colorPick.addEventListener('change', changeColor);
+colorPick.addEventListener('change', pickNewColor);
 createGrid();
 color = colorPick.value;
 
-function changeColor(){
+function pickNewColor(){
+    console.log(colorPick.value);
     color = colorPick.value;
 }
 function sliderUpdateData(val){
