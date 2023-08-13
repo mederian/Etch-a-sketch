@@ -1,11 +1,11 @@
 const maxSize = 100;
 let size = 40;
+
 const gridLabel = document.querySelector('#gridLabel');
 const sliderSizeInput = document.querySelector('#sizeInputSlider');
 sliderUpdateData(size);
 const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
-//textSizeInput.addEventListener('change', sizeRedo);
 sliderSizeInput.addEventListener('change', sizeRedo);
 sliderSizeInput.addEventListener('input', sliderMouseDown);
 

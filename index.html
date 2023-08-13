@@ -8,10 +8,27 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="slidergroup">
-        <div id="gridLabel"></div>
-        <input type="range" min="1" max="100" value="16" id="sizeInputSlider" name="fname">
+
+    <h1>Etch-A-Sketch</h1>
+    <div id="mainSection">
+        <div id="gridHolder"></div>
+
+
+        <div id="menuGroup">
+            <div id="slidergroup">
+                <p>Grid Size</p>
+                <div id="gridLabel"></div>
+                <div><input type="range" min="1" max="100" value="16" id="sizeInputSlider" name="fname"></div>
+            </div>
+            <div id="buttonGroup">
+                <button>Single Color</button>
+                <button>Rainbow</button>
+                <button>Eraser</button>
+                <button>Clear</button>
+            </div>
+        </div>
+       
     </div>
-    <div id="gridHolder"></div>
+    
 </body>
 </html>
