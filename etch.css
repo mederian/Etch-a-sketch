@@ -22,3 +22,9 @@
     background-color: blueviolet;
     transition: all 0.5s;
 }
+#gridLabel{
+    width: 20px;
+}
+#slidergroup{
+    display: flex;
+}

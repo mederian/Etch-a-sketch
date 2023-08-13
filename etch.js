@@ -1,11 +1,20 @@
-
+const maxSize = 100;
 let size = 40;
-const textSizeInput = document.querySelector('#sizeInput');
+const gridLabel = document.querySelector('#gridLabel');
+const sliderSizeInput = document.querySelector('#sizeInputSlider');
+sliderUpdateData(size);
 const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
-textSizeInput.addEventListener('change', sizeRedo);
+//textSizeInput.addEventListener('change', sizeRedo);
+sliderSizeInput.addEventListener('change', sizeRedo);
+sliderSizeInput.addEventListener('input', sliderMouseDown);
 
 createGrid();
+
+function sliderUpdateData(val){
+    sliderSizeInput.value = val;
+    gridLabel.innerText = val;
+}
 
 function createGrid(){
     console.log("Creating grid with size: " + size);  
@@ -34,15 +43,19 @@ function deleteGrid(){
 function changeColor(){
     this.classList.add('gridElementChanged');
 }
+function sliderMouseDown(){
+    gridLabel.innerText = this.value;
+}
 
 function sizeRedo(){
-    if(size != textSizeInput){
-        console.log(textSizeInput.value);
-        if(!isNaN(textSizeInput.value)){
-            console.log("Setting size");
-            size = textSizeInput.value;            
-            deleteGrid();
-            createGrid();
+    let newSize = this.value
+    if(size != newSize){
+        if(!isNaN(newSize)){
+            if(newSize > 0 && newSize <= 100){
+                size = newSize;            
+                deleteGrid();
+                createGrid();
+            }
         } 
     }    
 }
