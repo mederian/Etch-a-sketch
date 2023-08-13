@@ -1,16 +1,23 @@
 const maxSize = 100;
 let size = 40;
+let colormode = "plain";
+let color = "#000000"
 
 const gridLabel = document.querySelector('#gridLabel');
 const sliderSizeInput = document.querySelector('#sizeInputSlider');
+const colorPick = document.querySelector('#favcolor');
 sliderUpdateData(size);
 const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
 sliderSizeInput.addEventListener('change', sizeRedo);
 sliderSizeInput.addEventListener('input', sliderMouseDown);
-
+colorPick.addEventListener('change', changeColor);
 createGrid();
+color = colorPick.value;
 
+function changeColor(){
+    color = colorPick.value;
+}
 function sliderUpdateData(val){
     sliderSizeInput.value = val;
     gridLabel.innerText = val;
@@ -41,7 +48,11 @@ function deleteGrid(){
 }
 
 function changeColor(){
-    this.classList.add('gridElementChanged');
+    if(colormode === "plain"){
+        this.classList.add('gridElementChanged');
+        this.setAttribute('style', `background-color: ${color};`);
+    }
+    
 }
 function sliderMouseDown(){
     gridLabel.innerText = this.value;
