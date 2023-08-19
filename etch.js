@@ -11,9 +11,21 @@ const gridholder = document.querySelector('#gridHolder');
 const grid = new Array;
 sliderSizeInput.addEventListener('change', sizeRedo);
 sliderSizeInput.addEventListener('input', sliderMouseDown);
+
+const randomColorButton = document.querySelector('#randomColorButton');
+randomColorButton.addEventListener('click', setRandomColorMode);
+const singleColorButton = document.querySelector('#singleColorButton');
+singleColorButton.addEventListener('click', setSingleColorMode);
+
+/*
+singleColorButton">Single Color</button>
+                <button id="randomColorButton"
+*/
 colorPick.addEventListener('change', pickNewColor);
-createGrid();
 color = colorPick.value;
+
+
+createGrid();
 
 function pickNewColor(){
     console.log(colorPick.value);
@@ -53,6 +65,10 @@ function changeColor(){
         this.classList.add('gridElementChanged');
         this.setAttribute('style', `background-color: ${color};`);
     }
+    if(colormode === "random"){
+        this.classList.add('gridElementChanged');
+        this.setAttribute('style', `background-color: ${getRandomColor()};`);
+    }
     
 }
 function sliderMouseDown(){
@@ -75,4 +91,16 @@ function sizeRedo(){
 // Not in use
 function RemoveTransition(){
     this.classList.remove('gridElementChanged');
+}
+
+function setRandomColorMode(){
+    colormode = 'random';
+}
+
+function getRandomColor(){
+    return '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6)
+}
+
+function setSingleColorMode(){
+    colormode = 'plain';
 }
