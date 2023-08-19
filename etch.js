@@ -17,6 +17,12 @@ randomColorButton.addEventListener('click', setRandomColorMode);
 const singleColorButton = document.querySelector('#singleColorButton');
 singleColorButton.addEventListener('click', setSingleColorMode);
 
+const clearButton = document.querySelector('#clearButton');
+clearButton.addEventListener('click', clearGrid);
+
+const eraseButton = document.querySelector('#eraseButton');
+eraseButton.addEventListener('click', setBackgroundColor);
+
 /*
 singleColorButton">Single Color</button>
                 <button id="randomColorButton"
@@ -26,6 +32,18 @@ color = colorPick.value;
 
 
 createGrid();
+
+function setBackgroundColor(){
+    
+    //change color to background color
+    //change color of colorpicker
+
+}
+
+function clearGrid(){
+    deleteGrid();
+    createGrid();
+}
 
 function pickNewColor(){
     console.log(colorPick.value);
