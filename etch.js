@@ -21,7 +21,7 @@ const clearButton = document.querySelector('#clearButton');
 clearButton.addEventListener('click', clearGrid);
 
 const eraseButton = document.querySelector('#eraseButton');
-eraseButton.addEventListener('click', setBackgroundColor);
+eraseButton.addEventListener('click', setColorToBackground);
 
 /*
 singleColorButton">Single Color</button>
@@ -33,11 +33,18 @@ color = colorPick.value;
 
 createGrid();
 
-function setBackgroundColor(){
-    
+function setColorToBackground(){
+    setSingleColorMode();
+    //get background color
+    console.log('background');
+    const mainSection = document.querySelector('#gridHolder');
+    const styleMain = getComputedStyle(mainSection);
+    const mainColor = styleMain.getPropertyValue('background-color');
+
+    //colorPick.value = mainColor;
+    color = mainColor;
     //change color to background color
     //change color of colorpicker
-
 }
 
 function clearGrid(){
