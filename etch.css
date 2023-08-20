@@ -9,6 +9,7 @@ h1{
 }
 #mainSection{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     background-color: antiquewhite;
 }
@@ -21,7 +22,7 @@ h1{
 
     width: 473px;
     height: 473px;
-    background-color: rgb(199, 255, 217);
+    background-color: #e2f78f;
 }
 .gridElement{
     aspect-ratio: 1;

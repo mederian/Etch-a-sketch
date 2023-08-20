@@ -33,20 +33,25 @@ color = colorPick.value;
 
 createGrid();
 
+
 function setColorToBackground(){
     setSingleColorMode();
-    //get background color
-    console.log('background');
+
     const mainSection = document.querySelector('#gridHolder');
     const styleMain = getComputedStyle(mainSection);
     const mainColor = styleMain.getPropertyValue('background-color');
-
-    //colorPick.value = mainColor;
+    console.log(mainColor);
     color = mainColor;
-    //change color to background color
-    //change color of colorpicker
-}
 
+    const toRGBArray = rgbStr => rgbStr.match(/\d+/g).map(Number);
+    let newRGBHex = toRGBArray(mainColor);
+    const rgb2hex = rgbToHex(newRGBHex[0], newRGBHex[1], newRGBHex[2]);
+    colorPick.value = rgb2hex;
+}
+function rgbToHex(r, g, b) {
+    console.log(r + " " + g + " " + b);
+    return "#" + (1 << 24 | r << 16 | g << 8 | b).toString(16).slice(1);
+  }
 function clearGrid(){
     deleteGrid();
     createGrid();
